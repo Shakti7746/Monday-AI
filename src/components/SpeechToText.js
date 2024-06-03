@@ -1,47 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { webkitSpeechRecognition } from 'webkit-speech-recognition';
-// import { getUserMedia } from 'media-stream';
+import React, { useState, useEffect, useRef } from 'react';
 
 const SpeechToText = () => {
-  const [text, setText] = useState('');
-  const [error, setError] = useState(null);
+  const [isListening, setIsListening] = useState(false);
+  const [transcript, setTranscript] = useState('');
+  const recognitionRef = useRef(null);
 
   useEffect(() => {
-    const speechRecognition = new webkitSpeechRecognition();
-    speechRecognition.lang = 'en-US';
-    speechRecognition.maxResults = 10;
+    if (!('webkitSpeechRecognition' in window)) {
+      alert('Your browser does not support speech recognition.');
+      return;
+    }
 
-    speechRecognition.onresult = event => {
-      const transcript = event.results[0][0].transcript;
-      setText(transcript);
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => setIsListening(true);
+    recognition.onend = () => setIsListening(false);
+
+    recognition.onresult = (event) => {
+      let interimTranscript = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        if (event.results[i].isFinal) {
+          setTranscript(prev => prev + event.results[i][0].transcript);
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+      console.log(interimTranscript); // For debugging
     };
 
-    speechRecognition.onerror = event => {
-      setError(event.error);
-    };
-
-    navigator.mediaDevices.getUserMedia({ audio: true })
-      .then(stream => {
-        speechRecognition.start();
-        stream.getAudioTracks()[0].enabled = true;
-      })
-      .catch(error => {
-        setError(error);
-      });
-
-    return () => {
-      speechRecognition.stop();
-    };
+    recognitionRef.current = recognition;
   }, []);
+
+  const handleStartListening = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.start();
+    }
+  };
+
+  const handleStopListening = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+    }
+  };
 
   return (
     <div>
-      <h1>Speech to Text</h1>
-      <p>Speak now:</p>
-      <button onClick={() => speechRecognition.start()}>Start</button>
-      <button onClick={() => speechRecognition.stop()}>Stop</button>
-      <p>Transcript: {text}</p>
-      {error && <p>Error: {error.message}</p>}
+      <button onClick={handleStartListening} disabled={isListening}>
+        Start Listening
+      </button>
+      <button onClick={handleStopListening} disabled={!isListening}>
+        Stop Listening
+      </button>
+      <p>{transcript}</p>
     </div>
   );
 };
