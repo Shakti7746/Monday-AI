@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "./App.css";
+
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 function App() {
+  // Access your API key as an environment variable (see "Set up your API key" above)
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
+  const apiKey = "AIzaSyB_Jhb4eApsfYsiAtiVJXgb8srorLMNeQ0"; // Replace with your actual API key
 
-  // Access the API key from environment variables
-  const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" }); // hum AI ka model Change kr skte hain...
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" }); // Replace with desired model
       const message = await model.generateContent(prompt);
       const responseText = message.response.text();
       setResponse(responseText);
@@ -26,8 +26,10 @@ function App() {
 
   return (
     <div className="bg-gray-100 h-screen flex items-center justify-center">
-      <div className="flex flex-col h-full w-full max-w-full max-h-full">
-        <div className="flex-1 overflow-y-auto p-4 bg-white shadow-lg rounded-lg">
+    <div className="container mx-auto p-4 bg-white shadow-lg rounded-lg max-w-md">
+      <div className="flex flex-col h-full">
+        <div className="flex-1 overflow-y-auto p-4">
+          {/* Chat messages */}
           <div className="space-y-4">
             <div className="flex">
               <div className="bg-blue-500 text-white p-3 rounded-lg shadow-md self-end">
@@ -41,7 +43,7 @@ function App() {
             </div>
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="flex gap-2 mt-4 p-4 bg-white shadow-lg">
+        <form onSubmit={handleSubmit} className="flex gap-2 mt-4">
           <input
             type="text"
             value={prompt}
@@ -58,7 +60,8 @@ function App() {
         </form>
       </div>
     </div>
+  </div>
+  
   );
 }
-
 export default App;
