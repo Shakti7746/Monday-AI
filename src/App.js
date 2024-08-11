@@ -24,6 +24,9 @@ function App() {
     }
   };
 
+
+  //added some comments
+
   return (
     <div className="bg-gray-100 h-screen flex items-center justify-center">
       <div className="flex flex-col h-full w-full max-w-full max-h-full">
