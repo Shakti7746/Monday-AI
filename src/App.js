@@ -11,9 +11,7 @@ function App() {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    //comented
-    
-
+ 
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" }); // hum AI ka model Change kr skte hain...
