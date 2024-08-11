@@ -18,13 +18,11 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     setLoading(true); // Start loading when the request starts
 
     // Add the prompt to the chat history
     setChatHistory([...chatHistory, { type: "prompt", text: prompt }]);
     setPrompt(""); // Clear the input field after submitting
-
 
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
@@ -47,7 +45,6 @@ function App() {
       setLoading(false); // Stop loading once the request completes
     }
   };
-
 
   // Scroll to the bottom whenever chat history updates
   useEffect(() => {
@@ -127,26 +124,6 @@ function App() {
             >
               <FontAwesomeIcon icon={faCopy} />
             </button>
-
-
-  //added some comments
-
-  return (
-    <div className="bg-gray-100 h-screen flex items-center justify-center">
-      <div className="flex flex-col h-full w-full max-w-full max-h-full">
-        <div className="flex-1 overflow-y-auto p-4 bg-white shadow-lg rounded-lg">
-          <div className="space-y-4">
-            <div className="flex">
-              <div className="bg-blue-500 text-white p-3 rounded-lg shadow-md self-end">
-                {prompt}
-              </div>
-            </div>
-            <div className="flex justify-end">
-              <div className="bg-gray-300 text-gray-900 p-3 rounded-lg shadow-md self-start">
-                {response}
-              </div>
-            </div>
-
           </div>
         </div>
       );
@@ -191,7 +168,7 @@ function App() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="p-4 bg-white shadow-lg  flex items-center"
+        className="p-4 bg-white shadow-lg border-t border-gray-300 flex items-center"
       >
         <input
           type="text"
