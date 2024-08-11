@@ -11,6 +11,8 @@ function App() {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
+    //comented
+    
 
     try {
       const genAI = new GoogleGenerativeAI(apiKey);
