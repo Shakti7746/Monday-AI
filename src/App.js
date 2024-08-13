@@ -27,7 +27,7 @@ function App() {
       .join("\n");
   };
 
-  // Function to clean the response text by removing unwanted substrings
+  // Function to clean the response text by removing unwanted substrings(chat coherence ko thik krne ke liye generateConversationContext(updatedChatHistory); ka use kiya jisme by default ek response aa rha tha Assistant name ka usko htane ke liye ye function hai)
   const cleanResponseText = (text) => {
     return text.replace(/Assistant:\s*/g, "").trim();
   };
@@ -55,7 +55,7 @@ function App() {
         const message = await model.generateContent(conversationContext);
         let responseText = message.response.text();
 
-        // Clean the response text to remove unwanted substrings
+        // Clean the response text to remove unwanted substrings(Ai ke response me ek prefix aa rha tha Assistant Name ka usko htane ke liye)
         responseText = cleanResponseText(responseText);
 
         // Add the response to the chat history
@@ -106,13 +106,13 @@ function App() {
       });
   }, []);
 
-  // Function to format the response text with headings
+  // Function to format the response text with headings(===> Preventing Unnecessary Re-Renders: When passing callbacks to child components, if the function reference changes on every render, it can trigger unnecessary re-renders of the child component. Memoizing with useCallback ensures that the function reference remains stable as long as dependencies don't change.)
   const formatTextWithHeadings = useCallback((text) => {
     // Convert Markdown-like headings to HTML
     return text.split("\n").map((line, index) => {
       if (line.startsWith("**") && line.endsWith("**"))
         return (
-          <h3 key={index} className="text-2xl font-bold">
+          <h3 key={index} className="text-xl font-bold">
             {line.substring(2, line.length - 2).trim()}
           </h3>
         );
@@ -122,10 +122,10 @@ function App() {
             {line.substring(1, line.length - 1).trim()}
           </h4>
         );
-      if (line.startsWith("### "))
+      if (line.startsWith("* **") && line.endsWith("**"))
         return (
-          <h3 key={index} className="text-lg font-bold">
-            {line.substring(4)}
+          <h3 key={index} className="font-bold">
+            {line.substring(4, line.length - 2).trim()}
           </h3>
         );
       return <p key={index}>{line}</p>;
