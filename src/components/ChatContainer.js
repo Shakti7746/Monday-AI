@@ -1,8 +1,8 @@
-import { useEffect, useRef, useMemo,} from "react";
+import { useEffect, useRef, useMemo } from "react";
 import ChatMessage from "./ChatMessage";
 import Loader from "./Loader";
-import hljs from "highlight.js"; // Import highlight.js
-import "highlight.js/styles/github.css"; // Import a highlight.js theme
+import hljs from "highlight.js";
+import "highlight.js/styles/github.css";
 
 function ChatContainer({ chatHistory, loading }) {
   const chatContainerRef = useRef(null);
@@ -28,9 +28,14 @@ function ChatContainer({ chatHistory, loading }) {
 
   return (
     <div
-      className="flex-1 overflow-y-auto p-4 bg-white shadow-lg rounded-lg"
+      className="flex-1 overflow-y-auto p-6 bg-gradient-to-r from-blue-500 to-teal-400 shadow-lg rounded-lg text-white"
       ref={chatContainerRef}
     >
+      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <h1 className="text-9xl font-extrabold text-white tracking-widest">
+          MONDAY AI
+        </h1>
+      </div>
       <div className="space-y-4">
         {renderedChatHistory}
         {loading && (
