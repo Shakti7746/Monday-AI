@@ -1,7 +1,9 @@
 import React from "react";
 import { FaInstagram, FaGithub } from "react-icons/fa";
+import shakti_Img from '../assets/shakti_img.jpg'
 
 const About = () => {
+
   return (
     <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-r from-blue-500 to-teal-400 min-h-screen text-white">
       {/* Headline and Subheadline */}
@@ -60,15 +62,15 @@ const About = () => {
         {/* Photos of Developers */}
         <div className="flex space-x-4 mb-8">
           <img
-            src="https://via.placeholder.com/150"
+            src={shakti_Img}
             alt="Developer 1"
             className="w-32 h-32 rounded-full object-cover"
           />
-          <img
+          {/* <img
             src="https://via.placeholder.com/150"
             alt="Developer 2"
             className="w-32 h-32 rounded-full object-cover"
-          />
+          /> */}
         </div>
 
         {/* Privacy and Security */}

@@ -7,12 +7,14 @@ import reportWebVitals from "./reportWebVitals";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const domin = process.env.REACT_APP_AUTH0_DOMAIN
+const clid = process.env.REACT_APP_AUTH0_CLIENT_ID
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-5kbkleu73ifamimg.us.auth0.com"
-      clientId="rzTkZdZ12rgSFTEussvG6aRy9SnVDwuJ"
+      domain={domin}
+      clientId={clid}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}
