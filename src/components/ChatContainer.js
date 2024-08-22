@@ -32,7 +32,7 @@ function ChatContainer({ chatHistory, loading }) {
       ref={chatContainerRef}
     >
       <div className="absolute inset-0 flex items-center justify-center opacity-10">
-        <h1 className="text-5xl md:text-9xl font-extrabold text-white tracking-widest">
+        <h1 className="fixed text-5xl md:text-9xl font-extrabold text-white tracking-widest">
           MONDAY AI
         </h1>
       </div>
