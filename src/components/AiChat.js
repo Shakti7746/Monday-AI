@@ -65,12 +65,18 @@ function AiChat() {
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col">
-      <ChatContainer chatHistory={chatHistory} loading={loading} />
-      <ChatInput
-        prompt={prompt}
-        setPrompt={setPrompt}
-        handleSubmit={handleSubmit}
+      <ChatContainer
+        className="mb-20"
+        chatHistory={chatHistory}
+        loading={loading}
       />
+      <div className="fixed bottom-0 w-full">
+        <ChatInput
+          prompt={prompt}
+          setPrompt={setPrompt}
+          handleSubmit={handleSubmit}
+        />
+      </div>
     </div>
   );
 }
