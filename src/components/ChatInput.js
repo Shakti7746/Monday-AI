@@ -1,4 +1,5 @@
 import React from "react";
+import { BsFillSendFill } from "react-icons/bs";
 
 function ChatInput({ prompt, setPrompt, handleSubmit }) {
   return (
@@ -15,9 +16,9 @@ function ChatInput({ prompt, setPrompt, handleSubmit }) {
       />
       <button
         type="submit"
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-400 text-white py-1 md:py-2 px-4 rounded-full hover:bg-blue-700 text-xs md:text-sm"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 mr-2 py-1 md:py-2 px-4 rounded-full hover:bg-gray-400 text-xs md:text-sm"
       >
-        Send
+       <BsFillSendFill />
       </button>
     </form>
   );
