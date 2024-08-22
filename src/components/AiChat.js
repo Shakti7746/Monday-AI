@@ -64,7 +64,7 @@ function AiChat() {
   );
 
   return (
-    <div className="bg-gray-100 h-screen flex flex-col">
+    <div className="bg-gray-100 min-h-screen flex flex-col">
       <ChatContainer chatHistory={chatHistory} loading={loading} />
       <ChatInput
         prompt={prompt}
