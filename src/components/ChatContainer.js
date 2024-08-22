@@ -36,7 +36,7 @@ function ChatContainer({ chatHistory, loading }) {
           MONDAY AI
         </h1>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-4 mb-10">
         {renderedChatHistory}
         {loading && (
           <div className="flex justify-start">
