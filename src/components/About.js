@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaInstagram, FaGithub } from "react-icons/fa";
 import shakti_Img from '../assets/shakti_img.jpg'
+import roshan_img from '../assets/roshan.jpeg'
 
 const About = () => {
+  // State to control the modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Function to toggle modal
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-r from-blue-500 to-teal-400 min-h-screen text-white">
@@ -63,14 +71,14 @@ const About = () => {
         <div className="flex space-x-4 mb-8">
           <img
             src={shakti_Img}
-            alt="Developer 1"
+            alt="Shakti Kushwaha"
             className="w-32 h-32 rounded-full object-cover"
           />
-          {/* <img
-            src="https://via.placeholder.com/150"
-            alt="Developer 2"
+          <img
+            src={roshan_img}
+            alt="Roshan"
             className="w-32 h-32 rounded-full object-cover"
-          /> */}
+          />
         </div>
 
         {/* Privacy and Security */}
@@ -91,10 +99,8 @@ const About = () => {
       {/* Contact Options */}
       <div className="flex space-x-6 mt-8">
         <a
-          href="https://instagram.com/_shakti.kushwaha_"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-3xl"
+          onClick={toggleModal}
+          className="text-3xl cursor-pointer"
         >
           <FaInstagram />
         </a>
@@ -107,6 +113,40 @@ const About = () => {
           <FaGithub />
         </a>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-transparent">
+          <div className="bg-white bg-opacity-100 p-8 rounded-lg shadow-lg text-center text-gray-800">
+            <h3 className="text-2xl font-semibold mb-4">Follow us on Instagram</h3>
+            <div className="space-y-4">
+              <a
+                href="https://instagram.com/_shakti.kushwaha_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                Shakti Kushwaha
+              </a>
+              <br/>
+              <a
+                href="https://instagram.com/roshant2861"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                Roshan Tiwari
+              </a>
+            </div>
+            <button
+              onClick={toggleModal}
+              className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="mt-8">
