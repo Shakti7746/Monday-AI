@@ -7,21 +7,20 @@ import About from "./components/About";
 
 const App = () => {
   return (
-    <About/>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/about" element={<About />} />
-    //     <Route
-    //       path="/chat"
-    //       element={
-    //         <PrivateRoute>
-    //           <AiChat />
-    //         </PrivateRoute>
-    //       }
-    //     />
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/chat"
+          element={
+            <PrivateRoute>
+              <AiChat />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 
