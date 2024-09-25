@@ -14,7 +14,6 @@ const About = () => {
 
   return (
     <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-r from-blue-500 to-teal-400 min-h-screen text-white">
-      {/* Headline and Subheadline */}
       <h1 className="text-5xl font-bold mb-4">Meet Your AI Companion</h1>
       <h2 className="text-2xl mb-8">
         Discover the power of intelligent conversation.
