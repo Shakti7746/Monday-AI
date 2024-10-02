@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { FaInstagram, FaGithub } from "react-icons/fa";
+import { FaInstagram, FaGithub } from "react-icons/fa";
 import shakti_Img from '../assets/shakti_img.jpg'
 import roshan_img from '../assets/roshan.jpeg'
 
@@ -98,21 +98,20 @@ const About = () => {
 
       {/* Contact Options */}
       <div className="flex space-x-6 mt-8">
-        {/* <a
+        <button
           onClick={toggleModal}
           className="text-3xl cursor-pointer"
-          href="#"
         >
           <FaInstagram />
-        </a>
-        <a
+        </button>
+        <button
           href="https://github.com/shakti7746"
           target="_blank"
           rel="noopener noreferrer"
           className="text-3xl"
         >
           <FaGithub />
-        </a> */}
+        </button>
       </div>
 
       {/* Modal */}
@@ -121,7 +120,7 @@ const About = () => {
           <div className="bg-white bg-opacity-100 p-8 rounded-lg shadow-lg text-center text-gray-800">
             <h3 className="text-2xl font-semibold mb-4">Follow us on Instagram</h3>
             <div className="space-y-4">
-              {/* <a
+              <a
                 href="https://instagram.com/_shakti.kushwaha_"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -137,7 +136,7 @@ const About = () => {
                 className="text-blue-500 underline"
               >
                 Roshan Tiwari
-              </a> */}
+              </a>
             </div>
             <button
               onClick={toggleModal}
