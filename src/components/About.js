@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaInstagram, FaGithub } from "react-icons/fa";
+// import { FaInstagram, FaGithub } from "react-icons/fa";
 import shakti_Img from '../assets/shakti_img.jpg'
 import roshan_img from '../assets/roshan.jpeg'
 
@@ -97,10 +97,11 @@ const About = () => {
       </div>
 
       {/* Contact Options */}
-      {/* <div className="flex space-x-6 mt-8">
-        <a
+      <div className="flex space-x-6 mt-8">
+        {/* <a
           onClick={toggleModal}
           className="text-3xl cursor-pointer"
+          href="#"
         >
           <FaInstagram />
         </a>
@@ -111,16 +112,16 @@ const About = () => {
           className="text-3xl"
         >
           <FaGithub />
-        </a>
-      </div> */}
+        </a> */}
+      </div>
 
       {/* Modal */}
-      {/* {isModalOpen && (
+      {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-transparent">
           <div className="bg-white bg-opacity-100 p-8 rounded-lg shadow-lg text-center text-gray-800">
             <h3 className="text-2xl font-semibold mb-4">Follow us on Instagram</h3>
             <div className="space-y-4">
-              <a
+              {/* <a
                 href="https://instagram.com/_shakti.kushwaha_"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -136,7 +137,7 @@ const About = () => {
                 className="text-blue-500 underline"
               >
                 Roshan Tiwari
-              </a>
+              </a> */}
             </div>
             <button
               onClick={toggleModal}
@@ -146,7 +147,7 @@ const About = () => {
             </button>
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Footer */}
       <footer className="mt-8">
