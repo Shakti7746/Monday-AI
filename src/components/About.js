@@ -97,7 +97,7 @@ const About = () => {
       </div>
 
       {/* Contact Options */}
-      <div className="flex space-x-6 mt-8">
+      {/* <div className="flex space-x-6 mt-8">
         <a
           onClick={toggleModal}
           className="text-3xl cursor-pointer"
@@ -112,10 +112,10 @@ const About = () => {
         >
           <FaGithub />
         </a>
-      </div>
+      </div> */}
 
       {/* Modal */}
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-transparent">
           <div className="bg-white bg-opacity-100 p-8 rounded-lg shadow-lg text-center text-gray-800">
             <h3 className="text-2xl font-semibold mb-4">Follow us on Instagram</h3>
@@ -146,7 +146,7 @@ const About = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Footer */}
       <footer className="mt-8">
