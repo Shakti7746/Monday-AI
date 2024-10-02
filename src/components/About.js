@@ -98,20 +98,20 @@ const About = () => {
 
       {/* Contact Options */}
       <div className="flex space-x-6 mt-8">
-        <a
+        <button
           onClick={toggleModal}
           className="text-3xl cursor-pointer"
         >
           <FaInstagram />
-        </a>
-        <a
+        </button>
+        <button
           href="https://github.com/shakti7746"
           target="_blank"
           rel="noopener noreferrer"
           className="text-3xl"
         >
           <FaGithub />
-        </a>
+        </button>
       </div>
 
       {/* Modal */}
